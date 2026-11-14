@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story — Natalia ❤️</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- PANTALLA 1 -->
+    <main class="intro" id="intro">
+        <div class="universe"></div>
+        <canvas id="particles"></canvas>
+        <div class="light-beam"></div>
+
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <div class="content">
+            <div class="top-info">
+                <span class="line"></span>
+                <span>14 FEBRUARY 2026</span>
+                <span class="line"></span>
+            </div>
+
+            <div class="heart-symbol">✧</div>
+
+            <p class="pre-title">A STORY WRITTEN IN THE STARS</p>
+
+            <h1>OUR STORY</h1>
+
+            <p class="subtitle">
+                Every moment with you became<br>
+                a universe of its own.
+            </p>
+
+            <button id="startButton" class="start-button">
+                <span class="button-icon">✧</span>
+                <span>DISCOVER OUR STORY</span>
+                <span class="button-arrow">→</span>
+            </button>
+
+            <div class="bottom-info">
+                <span>MADE WITH LOVE</span>
+                <span class="bottom-heart">♥</span>
+                <span>FOR NATALIA</span>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <span>BEGIN OUR JOURNEY</span>
+            <div class="scroll-line"></div>
+        </div>
+    </main>
+
+
+    <!-- PANTALLA 2 -->
+    <section id="memoryScreen" class="memory-screen">
+
+        <div class="memory-background"></div>
+        <div class="memory-glow"></div>
+
+        <header class="memory-header">
+            <p class="memory-eyebrow">CHAPTER II · OUR MEMORIES</p>
+
+            <h2>Our little <span>universe</span></h2>
+
+            <p>Ten moments, countless feelings.</p>
+
+            <div class="memory-decoration">✧</div>
+        </header>
+
+        <div class="photo-universe">
+
+            <button class="photo-frame photo-1" data-photo="0">
+                <img src="img/foto1.jpg" alt="Nuestro recuerdo 1">
+                <span class="photo-caption">A little moment</span>
+            </button>
+
+            <button class="photo-frame photo-2" data-photo="1">
+                <img src="img/foto2.jpg" alt="Nuestro recuerdo 2">
+                <span class="photo-caption">Just us</span>
+            </button>
+
+            <button class="photo-frame photo-3" data-photo="2">
+                <img src="img/foto3.jpg" alt="Nuestro recuerdo 3">
+                <span class="photo-caption">Beautiful days</span>
+            </button>
+
+            <button class="photo-frame photo-4" data-photo="3">
+                <img src="img/foto4.jpg" alt="Nuestro recuerdo 4">
+                <span class="photo-caption">Forever moments</span>
+            </button>
+
+            <button class="photo-frame photo-5" data-photo="4">
+                <img src="img/foto5.jpg" alt="Nuestro recuerdo 5">
+                <span class="photo-caption">My favorite</span>
+            </button>
+
+            <button class="photo-frame photo-6" data-photo="5">
+                <img src="img/foto6.jpg" alt="Nuestro recuerdo 6">
+                <span class="photo-caption">With you</span>
+            </button>
+
+            <button class="photo-frame photo-7" data-photo="6">
+                <img src="img/foto7.jpg" alt="Nuestro recuerdo 7">
+                <span class="photo-caption">Our happiness</span>
+            </button>
+
+            <button class="photo-frame photo-8" data-photo="7">
+                <img src="img/foto8.jpg" alt="Nuestro recuerdo 8">
+                <span class="photo-caption">A thousand stars</span>
+            </button>
+
+            <button class="photo-frame photo-9" data-photo="8">
+                <img src="img/foto9.jpg" alt="Nuestro recuerdo 9">
+                <span class="photo-caption">My sunshine</span>
+            </button>
+
+            <button class="photo-frame photo-10" data-photo="9">
+                <img src="img/foto10.jpg" alt="Nuestro recuerdo 10">
+                <span class="photo-caption">Always you</span>
+            </button>
+
+        </div>
+
+        <footer class="memory-footer">
+            <span>EVERY PICTURE TELLS A STORY</span>
+            <span>✦</span>
+            <span>CLICK TO DISCOVER</span>
+        </footer>
+
+        <div id="continueMemory" class="continue-memory">
+            <p>EVERY MEMORY IS A PIECE OF US</p>
+
+            <button id="continueButton" class="continue-button">
+                CONTINUE OUR STORY <span>✦</span>
+            </button>
+        </div>
+
+    </section>
+
+
+    <!-- VISOR DE FOTOGRAFÍAS DEL ÁLBUM -->
+    <div id="photoModal" class="photo-modal">
+
+        <button id="closeModal" class="close-modal" aria-label="Cerrar">
+            ×
+        </button>
+
+        <div class="modal-content">
+
+            <div class="modal-photo-frame">
+                <img id="modalImage" src="" alt="">
+            </div>
+
+            <div class="modal-message">
+                <span class="modal-star">✧</span>
+
+                <h3 id="modalLove"></h3>
+
+                <p id="modalLanguage"></p>
+
+                <div class="modal-divider"></div>
+
+                <p class="modal-description" id="modalDescription"></p>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- PANTALLA 3 - CONSTELACIÓN -->
+    <section id="constellationScreen" class="constellation-screen">
+
+        <div class="constellation-background"></div>
+
+        <div class="constellation-content">
+
+            <p class="constellation-eyebrow">
+                CHAPTER III · OUR DESTINY
+            </p>
+
+            <h2>The Constellation <span>of Us</span></h2>
+
+            <p class="constellation-subtitle">
+                Even among billions of stars,<br>
+                I would always find my way to you.
+            </p>
+
+            <div class="constellation-universe">
+
+                <div class="constellation-line line-one"></div>
+                <div class="constellation-line line-two"></div>
+                <div class="constellation-line line-three"></div>
+                <div class="constellation-line line-four"></div>
+
+                <button
+                    class="constellation-star star-one"
+                    data-message="You became my favorite coincidence."
+                    aria-label="Primer recuerdo">
+                    ✦
+                </button>
+
+                <button
+                    class="constellation-star star-two"
+                    data-message="Every day with you is another beautiful memory."
+                    aria-label="Segundo recuerdo">
+                    ✦
+                </button>
+
+                <button
+                    class="constellation-star star-three"
+                    data-message="Distance means so little when someone means so much."
+                    aria-label="Tercer recuerdo">
+                    ✦
+                </button>
+
+                <button
+                    class="constellation-star star-four"
+                    data-message="You make my universe brighter."
+                    aria-label="Cuarto recuerdo">
+                    ✦
+                </button>
+
+                <button
+                    class="constellation-star star-five"
+                    data-message="And after all this time, I still choose you."
+                    aria-label="Quinto recuerdo">
+                    ✦
+                </button>
+
+            </div>
+
+            <div class="constellation-message">
+                <span>✧</span>
+                <p id="constellationMessage">
+                    Touch a star and discover a little secret.
+                </p>
+            </div>
+
+            <div class="constellation-footer">
+                <span>9 MONTHS</span>
+                <span>♥</span>
+                <span>INFINITE MEMORIES</span>
+            </div>
+
+            <div id="constellationContinue" class="continue-memory constellation-continue">
+                <p>FIVE MEMORIES, ONE UNIVERSE</p>
+
+                <button class="continue-button" type="button">
+                    CONTINUE OUR STORY <span>✦</span>
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- VISOR DE FOTOS Y VIDEOS DE LA CONSTELACIÓN -->
+    <div
+        id="constellationModal"
+        class="constellation-modal"
+        aria-modal="true"
+        role="dialog"
+        aria-label="Recuerdo de la constelación">
+
+        <button
+            id="closeConstellationModal"
+            class="close-modal"
+            type="button"
+            aria-label="Cerrar">
+            ×
+        </button>
+
+        <div class="constellation-media-frame">
+
+            <img
+                id="constellationMediaImage"
+                alt="Recuerdo de nuestra constelación"
+                hidden>
+
+            <video
+                id="constellationMediaVideo"
+                controls
+                playsinline
+                preload="metadata"
+                hidden>
+            </video>
+
+        </div>
+    </div>
+
+
+    <!-- PANTALLA 4 - CARTA FINAL -->
+    <section id="letterScreen" class="letter-screen">
+
+        <div class="letter-background"></div>
+        <div class="letter-glow"></div>
+
+        <div class="letter-container">
+
+            <p class="letter-eyebrow">
+                CHAPTER IV · JUST FOR YOU
+            </p>
+
+            <div class="letter-symbol">✧</div>
+
+            <h2>A letter <span>for you</span></h2>
+
+            <p class="letter-subtitle">
+                Some words that come straight from my heart.
+            </p>
+
+            <article class="letter-paper">
+
+                <div class="letter-paper-header">
+                    <span>TO MY FAVORITE PERSON</span>
+                    <span>♥</span>
+                </div>
+
+                <div class="letter-divider"></div>
+
+                <p id="typedLetter" class="typed-letter"></p>
+
+                <span id="letterCursor" class="letter-cursor">|</span>
+
+                <div id="letterSignature" class="letter-signature">
+                    <span>With all my love,</span>
+                    <strong>your nenito. ♥</strong>
+                </div>
+
+            </article>
+
+            <p class="letter-footer">
+                NINE MONTHS · AND A MILLION MORE MEMORIES TO COME
+            </p>
+
+        </div>
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1793 @@
+:root {
+    --navy: #030716;
+    --blue: #172c50;
+    --gold: #e9ca83;
+    --white: #f8f4ec;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+}
+
+/* ===================================
+   PANTALLA 1
+=================================== */
+
+.intro {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+    isolation: isolate;
+    z-index: 10;
+
+    background: #030716;
+
+    transition:
+        opacity 1.3s ease,
+        transform 1.5s ease,
+        filter 1.3s ease;
+}
+
+.intro.leaving {
+    opacity: 0;
+    transform: scale(1.08);
+    filter: blur(12px);
+    pointer-events: none;
+}
+
+.universe {
+    position: absolute;
+    inset: -20%;
+    z-index: -3;
+
+    background:
+        radial-gradient(ellipse at 20% 35%, #18345a 0%, transparent 35%),
+        radial-gradient(ellipse at 78% 25%, #57432655 0%, transparent 30%),
+        radial-gradient(ellipse at 55% 75%, #14294d 0%, transparent 40%),
+        radial-gradient(ellipse at 50% 50%, #101e37 0%, #030716 70%);
+
+    animation: universeMove 18s ease-in-out infinite alternate;
+}
+
+@keyframes universeMove {
+    from {
+        transform: scale(1) rotate(0deg);
+    }
+
+    to {
+        transform: scale(1.18) rotate(3deg);
+    }
+}
+
+#particles {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+.light-beam {
+    position: absolute;
+    width: min(850px, 100vw);
+    height: min(850px, 100vw);
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        #d8b66c17 0%,
+        #9eb7e509 35%,
+        transparent 70%
+    );
+
+    filter: blur(20px);
+    animation: lightPulse 6s ease-in-out infinite;
+}
+
+@keyframes lightPulse {
+    0%, 100% {
+        transform: scale(.85);
+        opacity: .55;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+}
+
+.content {
+    position: relative;
+    z-index: 3;
+    width: 90%;
+    max-width: 900px;
+    text-align: center;
+    animation: contentEnter 2s cubic-bezier(.2,.7,.2,1) both;
+}
+
+@keyframes contentEnter {
+    from {
+        opacity: 0;
+        transform: translateY(45px);
+        filter: blur(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+.top-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 45px;
+
+    color: #c0c8d7;
+    font-size: 9px;
+    letter-spacing: 4px;
+}
+
+.top-info .line {
+    width: 45px;
+    height: 1px;
+    background: #e9ca8360;
+}
+
+.heart-symbol {
+    color: var(--gold);
+    font-size: 23px;
+    margin-bottom: 20px;
+    animation: symbolGlow 3s ease-in-out infinite;
+}
+
+@keyframes symbolGlow {
+    0%, 100% {
+        text-shadow: 0 0 5px #e9ca83;
+        transform: rotate(0deg);
+    }
+
+    50% {
+        text-shadow: 0 0 25px #e9ca83;
+        transform: rotate(45deg);
+    }
+}
+
+.pre-title {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 6px;
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(75px, 13vw, 145px);
+    letter-spacing: 12px;
+    line-height: 1;
+
+    background: linear-gradient(
+        180deg,
+        #fff9e9 0%,
+        #e9ca83 50%,
+        #c5a568 100%
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    filter: drop-shadow(0 5px 30px #e9ca8320);
+}
+
+.subtitle {
+    margin-top: 28px;
+    color: #c3ccdb;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(19px, 3vw, 25px);
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+.start-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 17px;
+
+    margin-top: 50px;
+    padding: 18px 30px;
+
+    border: 1px solid #e9ca8370;
+    border-radius: 50px;
+
+    color: #f7e7bf;
+    background: linear-gradient(
+        120deg,
+        #e9ca8310,
+        #e9ca8325,
+        #e9ca8310
+    );
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2.5px;
+
+    cursor: pointer;
+    overflow: hidden;
+
+    transition: .4s;
+}
+
+.start-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 70%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #ffffff35,
+        transparent
+    );
+
+    transform: skewX(-25deg);
+    transition: left .7s;
+}
+
+.start-button:hover::before {
+    left: 150%;
+}
+
+.start-button:hover {
+    transform: translateY(-4px) scale(1.03);
+    background: #e9ca8325;
+    border-color: var(--gold);
+
+    box-shadow:
+        0 0 20px #e9ca8325,
+        0 0 55px #e9ca8310;
+}
+
+.start-button:disabled {
+    pointer-events: none;
+}
+
+.button-icon,
+.button-arrow {
+    font-size: 17px;
+    color: var(--gold);
+}
+
+.button-arrow {
+    transition: transform .3s;
+}
+
+.start-button:hover .button-arrow {
+    transform: translateX(5px);
+}
+
+.bottom-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 65px;
+
+    color: #8390a5;
+    font-size: 8px;
+    letter-spacing: 3px;
+}
+
+.bottom-heart {
+    color: var(--gold);
+    font-size: 11px;
+}
+
+.corner {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    opacity: .55;
+    border-color: #e9ca8360;
+    border-style: solid;
+    z-index: 2;
+}
+
+.corner-tl {
+    top: 35px;
+    left: 35px;
+    border-width: 1px 0 0 1px;
+}
+
+.corner-tr {
+    top: 35px;
+    right: 35px;
+    border-width: 1px 1px 0 0;
+}
+
+.corner-bl {
+    bottom: 35px;
+    left: 35px;
+    border-width: 0 0 1px 1px;
+}
+
+.corner-br {
+    bottom: 35px;
+    right: 35px;
+    border-width: 0 1px 1px 0;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+
+    color: #77849a;
+    font-size: 7px;
+    letter-spacing: 3px;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 28px;
+
+    background: linear-gradient(#e9ca83, transparent);
+    animation: lineMove 1.8s ease-in-out infinite;
+}
+
+@keyframes lineMove {
+    0%, 100% {
+        transform: scaleY(.5);
+        opacity: .4;
+    }
+
+    50% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+
+/* ===================================
+   PANTALLA 2 - MEMORY UNIVERSE
+=================================== */
+
+.memory-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+
+    background: #050b1c;
+
+    transition:
+        opacity 1.3s ease,
+        visibility 1.3s ease,
+        transform 1.2s ease;
+}
+
+.memory-screen.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.memory-screen.leaving-memory {
+    opacity: 0;
+    transform: scale(1.08);
+    pointer-events: none;
+}
+
+.memory-background {
+    position: absolute;
+    inset: -20%;
+
+    background:
+        radial-gradient(ellipse at 15% 25%, #243e6438, transparent 40%),
+        radial-gradient(ellipse at 85% 75%, #a37c3630, transparent 35%),
+        radial-gradient(ellipse at 50% 50%, #152644, #050b1c 75%);
+
+    animation: memoryBackground 18s ease-in-out infinite alternate;
+}
+
+@keyframes memoryBackground {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.15);
+    }
+}
+
+.memory-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background: radial-gradient(circle, #d9b66c13, transparent 70%);
+    filter: blur(35px);
+    pointer-events: none;
+}
+
+.memory-header {
+    position: absolute;
+    top: 6%;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    text-align: center;
+    pointer-events: none;
+    animation: memoryReveal 1.5s ease both;
+}
+
+.memory-eyebrow {
+    color: #e9ca83;
+    font-size: 9px;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+}
+
+.memory-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(35px, 5vw, 62px);
+    color: #f8f4ec;
+}
+
+.memory-header h2 span {
+    color: #e9ca83;
+    font-style: italic;
+}
+
+.memory-header > p:not(.memory-eyebrow) {
+    margin-top: 8px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    color: #aebbd0;
+}
+
+.memory-decoration {
+    margin-top: 13px;
+    color: #e9ca83;
+    font-size: 17px;
+}
+
+.photo-universe {
+    position: absolute;
+    inset: 0;
+}
+
+.photo-frame {
+    position: absolute;
+    width: clamp(115px, 15vw, 190px);
+    padding: 9px 9px 30px;
+
+    background: linear-gradient(145deg, #f5f0e4, #c9c2b2);
+    border: none;
+    border-radius: 3px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 15px 40px #0009,
+        0 0 18px #e9ca8310;
+
+    transition:
+        transform .5s cubic-bezier(.2,.8,.2,1),
+        box-shadow .5s;
+
+    animation: photoFloat 5s ease-in-out infinite;
+}
+
+.photo-frame img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    background: #26334a;
+}
+
+.photo-caption {
+    display: block;
+    padding-top: 8px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(10px, 1.2vw, 14px);
+    color: #303342;
+    text-align: center;
+}
+
+.photo-1 {
+    top: 34%;
+    left: 9%;
+    transform: rotate(-13deg);
+}
+
+.photo-2 {
+    top: 22%;
+    left: 29%;
+    transform: rotate(8deg);
+    animation-delay: -.8s;
+}
+
+.photo-3 {
+    top: 39%;
+    right: 29%;
+    transform: rotate(-7deg);
+    animation-delay: -1.5s;
+}
+
+.photo-4 {
+    top: 30%;
+    right: 8%;
+    transform: rotate(12deg);
+    animation-delay: -.4s;
+}
+
+.photo-5 {
+    bottom: 7%;
+    left: 19%;
+    transform: rotate(7deg);
+    animation-delay: -2s;
+}
+
+.photo-6 {
+    bottom: 6%;
+    left: 42%;
+    transform: rotate(-10deg);
+    animation-delay: -.9s;
+}
+
+.photo-7 {
+    bottom: 8%;
+    right: 18%;
+    transform: rotate(9deg);
+    animation-delay: -1.8s;
+}
+
+.photo-8 {
+    top: 8%;
+    left: 8%;
+    transform: rotate(8deg);
+    animation-delay: -1.2s;
+}
+
+.photo-9 {
+    top: 8%;
+    right: 28%;
+    transform: rotate(-9deg);
+    animation-delay: -.5s;
+}
+
+.photo-10 {
+    bottom: 12%;
+    right: 4%;
+    transform: rotate(-12deg);
+    animation-delay: -2.5s;
+}
+
+@keyframes photoFloat {
+    0%, 100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -10px;
+    }
+}
+
+.photo-frame:hover {
+    z-index: 8;
+    scale: 1.08;
+
+    box-shadow:
+        0 20px 55px #000c,
+        0 0 25px #e9ca8335;
+}
+
+.memory-footer {
+    position: absolute;
+    bottom: 22px;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    color: #929eb1;
+    font-size: 8px;
+    letter-spacing: 3px;
+
+    pointer-events: none;
+}
+
+.memory-footer span:last-child {
+    color: #e9ca83;
+}
+
+
+/* ===================================
+   BOTÓN CONTINUAR
+=================================== */
+
+.continue-memory {
+    position: absolute;
+    bottom: 55px;
+    left: 0;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    z-index: 20;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(25px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease,
+        visibility .8s ease;
+}
+
+.continue-memory.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.continue-memory p {
+    color: #c5b995;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+.continue-button {
+    padding: 16px 30px;
+
+    border: 1px solid #e9ca83;
+    border-radius: 40px;
+
+    background: #050b1c;
+    color: #f5dfaa;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+    transition: .4s;
+}
+
+.continue-button:hover {
+    background: #e9ca83;
+    color: #050b1c;
+    box-shadow: 0 0 35px #e9ca8360;
+    transform: translateY(-4px);
+}
+
+.continue-button:disabled {
+    pointer-events: none;
+}
+
+
+/* ===================================
+   VISOR AMPLIADO
+=================================== */
+
+.photo-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+
+    background: #02040eea;
+    backdrop-filter: blur(12px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity .5s ease,
+        visibility .5s ease;
+}
+
+.photo-modal.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: min(100%, 420px);
+
+    transform: scale(.75) translateY(25px);
+    transition: transform .6s cubic-bezier(.2,.8,.2,1);
+}
+
+.photo-modal.open .modal-content {
+    transform: scale(1) translateY(0);
+}
+
+.modal-photo-frame {
+    width: min(75vw, 310px);
+    padding: 12px 12px 14px;
+
+    background: #f5f0e4;
+
+    box-shadow:
+        0 20px 70px #000c,
+        0 0 35px #e9ca8325;
+
+    transform: rotate(-2deg);
+}
+
+.modal-photo-frame img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+}
+
+.modal-message {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.modal-star {
+    color: #e9ca83;
+    font-size: 21px;
+}
+
+.modal-message h3 {
+    margin-top: 10px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 38px;
+    color: #f5dfaa;
+}
+
+.modal-message > p {
+    color: #aab7ca;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-top: 8px;
+}
+
+.modal-divider {
+    width: 55px;
+    height: 1px;
+    margin: 20px auto;
+    background: #e9ca83;
+}
+
+.modal-message .modal-description {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    letter-spacing: .5px;
+    color: #d2d9e5;
+}
+
+.close-modal {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+
+    width: 45px;
+    height: 45px;
+
+    border: 1px solid #e9ca8360;
+    border-radius: 50%;
+
+    background: #ffffff08;
+    color: #f5dfaa;
+
+    font-size: 27px;
+    font-weight: 300;
+
+    cursor: pointer;
+    transition: .3s;
+}
+
+.close-modal:hover {
+    background: #e9ca83;
+    color: #050b1c;
+    transform: rotate(90deg);
+}
+
+
+/* ===================================
+   PANTALLA 3 - CONSTELLATION
+=================================== */
+
+.constellation-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 4;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    opacity: 0;
+    visibility: hidden;
+
+    background: #030716;
+
+    transition:
+        opacity 1.4s ease,
+        visibility 1.4s ease;
+}
+
+.constellation-screen.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.constellation-background {
+    position: absolute;
+    inset: -20%;
+
+    background:
+        radial-gradient(ellipse at 20% 30%, #18345a 0%, transparent 40%),
+        radial-gradient(ellipse at 80% 75%, #57432640 0%, transparent 35%),
+        radial-gradient(ellipse at 50% 50%, #101e37, #030716 75%);
+
+    animation: universeMove 20s ease-in-out infinite alternate;
+}
+
+.constellation-content {
+    position: relative;
+    z-index: 2;
+
+    width: 90%;
+    max-width: 850px;
+
+    text-align: center;
+}
+
+.constellation-eyebrow {
+    color: #e9ca83;
+    font-size: 9px;
+    letter-spacing: 4px;
+    margin-bottom: 18px;
+}
+
+.constellation-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(42px, 7vw, 76px);
+    color: #f8f4ec;
+}
+
+.constellation-content h2 span {
+    color: #e9ca83;
+    font-style: italic;
+}
+
+.constellation-subtitle {
+    margin-top: 18px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    line-height: 1.5;
+    color: #b8c3d4;
+}
+
+.constellation-universe {
+    position: relative;
+
+    width: min(90vw, 430px);
+    height: 260px;
+
+    margin: 30px auto 10px;
+}
+
+.constellation-star {
+    position: absolute;
+    z-index: 3;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    background: transparent;
+
+    color: #f5dfaa;
+    font-size: 32px;
+
+    cursor: pointer;
+
+    filter: drop-shadow(0 0 10px #e9ca83);
+
+    animation: starTwinkle 2.5s ease-in-out infinite alternate;
+
+    transition: .3s;
+}
+
+.constellation-star:hover {
+    color: white;
+    transform: scale(1.5);
+    filter: drop-shadow(0 0 20px #e9ca83);
+}
+
+.star-one {
+    top: 25px;
+    left: 10%;
+}
+
+.star-two {
+    top: 90px;
+    left: 31%;
+    animation-delay: -.5s;
+}
+
+.star-three {
+    top: 20px;
+    left: 55%;
+    animation-delay: -1s;
+}
+
+.star-four {
+    top: 135px;
+    left: 70%;
+    animation-delay: -.7s;
+}
+
+.star-five {
+    top: 195px;
+    left: 43%;
+    animation-delay: -1.4s;
+}
+
+@keyframes starTwinkle {
+    from {
+        opacity: .55;
+        filter: drop-shadow(0 0 5px #e9ca83);
+    }
+
+    to {
+        opacity: 1;
+        filter: drop-shadow(0 0 18px #e9ca83);
+    }
+}
+
+.constellation-line {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e9ca8380, transparent);
+    transform-origin: left;
+    opacity: .7;
+}
+
+.line-one {
+    width: 115px;
+    top: 55px;
+    left: 15%;
+    transform: rotate(30deg);
+}
+
+.line-two {
+    width: 130px;
+    top: 115px;
+    left: 36%;
+    transform: rotate(-28deg);
+}
+
+.line-three {
+    width: 110px;
+    top: 50px;
+    left: 60%;
+    transform: rotate(60deg);
+}
+
+.line-four {
+    width: 125px;
+    top: 160px;
+    left: 48%;
+    transform: rotate(25deg);
+}
+
+.constellation-message {
+    min-height: 65px;
+    margin-top: 10px;
+}
+
+.constellation-message span {
+    color: #e9ca83;
+    font-size: 20px;
+}
+
+.constellation-message p {
+    margin-top: 8px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    color: #e1d9c8;
+}
+
+.constellation-footer {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 30px;
+
+    color: #929eb1;
+    font-size: 8px;
+    letter-spacing: 3px;
+}
+
+.constellation-footer span:nth-child(2) {
+    color: #e9ca83;
+}
+
+
+/* ===================================
+   ANIMACIONES GENERALES
+=================================== */
+
+@keyframes memoryReveal {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ===================================
+   RESPONSIVE
+=================================== */
+
+@media(max-width: 700px) {
+
+    .memory-header {
+        top: 4%;
+    }
+
+    .memory-header h2 {
+        font-size: 38px;
+    }
+
+    .memory-header > p:not(.memory-eyebrow) {
+        font-size: 16px;
+    }
+
+    .photo-frame {
+        width: clamp(85px, 24vw, 125px);
+        padding: 6px 6px 22px;
+    }
+
+    .photo-1 {
+        top: 30%;
+        left: 4%;
+    }
+
+    .photo-2 {
+        top: 20%;
+        left: 37%;
+    }
+
+    .photo-3 {
+        top: 32%;
+        right: 4%;
+    }
+
+    .photo-4 {
+        top: 48%;
+        right: 5%;
+    }
+
+    .photo-5 {
+        bottom: 18%;
+        left: 5%;
+    }
+
+    .photo-6 {
+        bottom: 16%;
+        left: 37%;
+    }
+
+    .photo-7 {
+        bottom: 18%;
+        right: 5%;
+    }
+
+    .photo-8 {
+        top: 8%;
+        left: 5%;
+    }
+
+    .photo-9 {
+        top: 8%;
+        right: 5%;
+    }
+
+    .photo-10 {
+        bottom: 5%;
+        left: 38%;
+    }
+
+    .memory-footer {
+        bottom: 10px;
+        font-size: 6px;
+        letter-spacing: 1px;
+    }
+
+    .continue-memory {
+        bottom: 35px;
+    }
+
+    .continue-memory p {
+        font-size: 7px;
+        letter-spacing: 2px;
+    }
+
+    .continue-button {
+        padding: 13px 20px;
+        font-size: 8px;
+    }
+
+    .modal-photo-frame {
+        width: min(65vw, 260px);
+    }
+
+    .modal-message h3 {
+        font-size: 30px;
+    }
+
+    .modal-message .modal-description {
+        font-size: 17px;
+    }
+
+    .constellation-universe {
+        height: 220px;
+    }
+
+    .constellation-subtitle {
+        font-size: 18px;
+    }
+
+    .constellation-message p {
+        font-size: 18px;
+    }
+
+    .constellation-footer {
+        font-size: 6px;
+        letter-spacing: 2px;
+    }
+}
+
+@media(max-width: 600px) {
+
+    .top-info {
+        font-size: 7px;
+        letter-spacing: 2px;
+        gap: 10px;
+    }
+
+    .top-info .line {
+        width: 25px;
+    }
+
+    h1 {
+        font-size: clamp(65px, 17vw, 95px);
+        letter-spacing: 5px;
+    }
+
+    .pre-title {
+        font-size: 8px;
+        letter-spacing: 3px;
+    }
+
+    .subtitle {
+        font-size: 20px;
+    }
+
+    .start-button {
+        padding: 16px 22px;
+        font-size: 8px;
+        gap: 10px;
+    }
+
+    .bottom-info {
+        font-size: 6px;
+        letter-spacing: 1.5px;
+        gap: 8px;
+        margin-top: 50px;
+    }
+
+    .corner {
+        width: 35px;
+        height: 35px;
+    }
+
+    .corner-tl,
+    .corner-tr {
+        top: 18px;
+    }
+
+    .corner-bl,
+    .corner-br {
+        bottom: 18px;
+    }
+
+    .corner-tl,
+    .corner-bl {
+        left: 18px;
+    }
+
+    .corner-tr,
+    .corner-br {
+        right: 18px;
+    }
+}
+
+@media(max-height: 650px) {
+
+    .top-info {
+        margin-bottom: 20px;
+    }
+
+    .bottom-info {
+        margin-top: 30px;
+    }
+
+    .start-button {
+        margin-top: 25px;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+
+/* ===================================
+   EFECTO CINEMATIC ZOOM - CONSTELACIÓN
+=================================== */
+
+.constellation-universe {
+    transition:
+        transform .95s cubic-bezier(.2, .8, .2, 1),
+        filter .95s ease;
+
+    will-change: transform;
+}
+
+.constellation-universe.zooming {
+    transform: scale(1.65);
+    filter: brightness(1.25);
+}
+
+.constellation-star.discovered {
+    color: #ffffff;
+    filter: drop-shadow(0 0 22px #f5dfaa);
+}
+
+.constellation-message p {
+    transition: opacity .25s ease;
+}
+
+.constellation-next {
+    display: block;
+    margin: 28px auto 0;
+    padding: 15px 28px;
+
+    border: 1px solid #e9ca8380;
+    border-radius: 40px;
+
+    background: linear-gradient(
+        120deg,
+        #e9ca8310,
+        #e9ca8325,
+        #e9ca8310
+    );
+
+    color: #f5dfaa;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease,
+        visibility .7s ease,
+        background .3s ease;
+}
+
+.constellation-next.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.constellation-next:hover {
+    background: #e9ca83;
+    color: #050b1c;
+    box-shadow: 0 0 30px #e9ca8350;
+}
+
+.constellation-next:disabled {
+    pointer-events: none;
+}
+
+.constellation-screen.leaving-constellation {
+    opacity: 0;
+    transform: scale(1.08);
+    filter: blur(10px);
+    pointer-events: none;
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease,
+        filter 1s ease;
+}
+
+
+/* ===================================
+   PANTALLA 4 - CARTA FINAL
+=================================== */
+
+.letter-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 6;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding: 55px 20px;
+
+    background: #030716;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease;
+}
+
+.letter-screen.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.letter-background {
+    position: fixed;
+    inset: -20%;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(ellipse at 18% 20%, #18345a 0%, transparent 42%),
+        radial-gradient(ellipse at 85% 80%, #57432645 0%, transparent 38%),
+        radial-gradient(ellipse at 50% 50%, #101e37, #030716 75%);
+
+    animation: universeMove 22s ease-in-out infinite alternate;
+}
+
+.letter-glow {
+    position: fixed;
+    top: 45%;
+    left: 50%;
+
+    width: min(750px, 95vw);
+    height: 750px;
+
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+
+    background: radial-gradient(circle, #e9ca8315, transparent 68%);
+    filter: blur(35px);
+}
+
+.letter-container {
+    position: relative;
+    z-index: 2;
+
+    width: min(100%, 760px);
+    margin: auto;
+
+    text-align: center;
+
+    animation: letterReveal 1.5s ease both;
+}
+
+@keyframes letterReveal {
+    from {
+        opacity: 0;
+        transform: translateY(28px) scale(.98);
+        filter: blur(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+.letter-eyebrow {
+    margin-bottom: 18px;
+    color: #e9ca83;
+    font-size: 9px;
+    letter-spacing: 4px;
+}
+
+.letter-symbol {
+    margin-bottom: 10px;
+    color: #e9ca83;
+    font-size: 25px;
+    animation: symbolGlow 3s ease-in-out infinite;
+}
+
+.letter-container h2 {
+    color: #f8f4ec;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(45px, 7vw, 72px);
+    font-weight: 300;
+}
+
+.letter-container h2 span {
+    color: #e9ca83;
+    font-style: italic;
+}
+
+.letter-subtitle {
+    margin-top: 10px;
+    color: #b8c3d4;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+}
+
+.letter-paper {
+    width: min(100%, 650px);
+    margin: 35px auto 0;
+
+    padding: clamp(25px, 5vw, 48px);
+
+    border: 1px solid #e9ca8345;
+    border-radius: 3px;
+
+    background: linear-gradient(145deg, #101d32f5, #091326f5);
+
+    box-shadow:
+        0 25px 90px #0008,
+        inset 0 0 45px #e9ca8308;
+
+    text-align: left;
+}
+
+.letter-paper-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: #e9ca83;
+    font-size: 8px;
+    letter-spacing: 2.5px;
+}
+
+.letter-paper-header span:last-child {
+    font-size: 17px;
+}
+
+.letter-divider {
+    width: 100%;
+    height: 1px;
+
+    margin: 22px 0 28px;
+
+    background: linear-gradient(90deg, #e9ca8380, #e9ca8310);
+}
+
+.typed-letter {
+    min-height: 220px;
+
+    color: #e1d9c8;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.5vw, 21px);
+    line-height: 1.8;
+
+    white-space: pre-line;
+}
+
+.letter-cursor {
+    display: inline-block;
+
+    margin-top: 2px;
+
+    color: #e9ca83;
+    font-size: 22px;
+
+    animation: cursorBlink .8s steps(2, start) infinite;
+}
+
+@keyframes cursorBlink {
+    to {
+        visibility: hidden;
+    }
+}
+
+.letter-signature {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    margin-top: 25px;
+
+    color: #aebbd0;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+
+    opacity: 0;
+    transform: translateY(10px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.letter-signature.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.letter-signature strong {
+    color: #f5dfaa;
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.letter-footer {
+    margin-top: 28px;
+
+    color: #8390a5;
+    font-size: 8px;
+    letter-spacing: 2.5px;
+}
+
+@media(max-width: 700px) {
+
+    .letter-screen {
+        padding: 38px 16px;
+    }
+
+    .letter-paper {
+        margin-top: 25px;
+        padding: 25px 22px;
+    }
+
+    .letter-footer {
+        font-size: 6px;
+        line-height: 1.8;
+    }
+
+    .constellation-next {
+        margin-top: 18px;
+        padding: 13px 20px;
+        font-size: 8px;
+    }
+}
+
+@media(max-height: 700px) {
+
+    .constellation-screen {
+        overflow-y: auto;
+        align-items: flex-start;
+        padding: 35px 0;
+    }
+
+    .constellation-content {
+        margin: auto;
+    }
+
+    .constellation-universe {
+        margin-top: 18px;
+        margin-bottom: 0;
+    }
+
+    .constellation-footer {
+        margin-top: 15px;
+    }
+}
+
+
+/* ===================================
+   VISOR DE FOTOS Y VIDEOS DE LA CONSTELACIÓN
+=================================== */
+
+.constellation-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 24px;
+
+    background: #02040ef0;
+    backdrop-filter: blur(13px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity .45s ease,
+        visibility .45s ease;
+}
+
+.constellation-modal.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.constellation-media-frame {
+    width: min(82vw, 760px);
+    max-height: 82vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 12px;
+
+    background: linear-gradient(145deg, #f5f0e4, #c9c2b2);
+
+    box-shadow:
+        0 20px 70px #000c,
+        0 0 35px #e9ca8325;
+
+    transform: scale(.88) translateY(18px);
+
+    transition: transform .5s cubic-bezier(.2,.8,.2,1);
+}
+
+.constellation-modal.open .constellation-media-frame {
+    transform: scale(1) translateY(0);
+}
+
+.constellation-media-frame img,
+.constellation-media-frame video {
+    display: block;
+
+    max-width: 100%;
+    max-height: calc(82vh - 24px);
+
+    object-fit: contain;
+
+    background: #030716;
+}
+
+/* IMPORTANTE:
+   Evita que el display:block de las imágenes y videos
+   anule el atributo hidden de HTML. */
+.constellation-media-frame [hidden] {
+    display: none !important;
+}
+
+.constellation-modal .close-modal {
+    z-index: 2;
+}
+
+
+/* ===================================
+   BOTÓN CONTINUAR DE LA CONSTELACIÓN
+   REUTILIZA EL DISEÑO DEL ÁLBUM
+=================================== */
+
+.constellation-screen .constellation-continue {
+    position: relative;
+    left: auto;
+    bottom: auto;
+
+    width: 100%;
+
+    margin-top: 20px;
+    gap: 12px;
+}
+
+.constellation-screen .constellation-continue p {
+    color: #c5b995;
+}
+
+.constellation-screen .constellation-continue .continue-button {
+    background: #050b1c;
+}
+
+@media (max-width: 700px) {
+
+    .constellation-modal {
+        padding: 15px;
+    }
+
+    .constellation-media-frame {
+        width: min(92vw, 600px);
+        padding: 7px;
+    }
+
+    .constellation-screen .constellation-continue {
+        margin-top: 12px;
+    }
+}
