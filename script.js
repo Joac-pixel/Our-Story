@@ -327,42 +327,42 @@ const letterSignature = document.getElementById("letterSignature");
 /*
    ORDEN DE LOS RECUERDOS:
 
-   ESTRELLA 1 -> img/foto11.jpg
-   ESTRELLA 2 -> img/foto12.jpg
-   ESTRELLA 3 -> img/video1.mp4
-   ESTRELLA 4 -> img/foto13.jpg
-   ESTRELLA 5 -> img/video2.mp4
+   ESTRELLA 1 -> Img/foto11.jpg
+   ESTRELLA 2 -> Img/foto12.jpg
+   ESTRELLA 3 -> Img/video1.mp4
+   ESTRELLA 4 -> Img/foto13.jpg
+   ESTRELLA 5 -> Img/video2.mp4
 */
 
 const constellationMemories = [
 
     {
         type: "image",
-        src: "img/foto11.jpg",
+        src: "Img/foto11.jpg",
         alt: "Nuestro recuerdo especial"
     },
 
     {
         type: "image",
-        src: "img/foto12.jpg",
+        src: "Img/foto12.jpg",
         alt: "Otro recuerdo nuestro"
     },
 
     {
         type: "video",
-        src: "img/video1.mp4",
+        src: "Img/video1.mp4",
         alt: "Nuestro primer video"
     },
 
     {
         type: "image",
-        src: "img/foto13.jpg",
+        src: "Img/foto13.jpg",
         alt: "Un recuerdo más de nosotros"
     },
 
     {
         type: "video",
-        src: "img/video2.mp4",
+        src: "Img/video2.mp4",
         alt: "Nuestro segundo video"
     }
 
